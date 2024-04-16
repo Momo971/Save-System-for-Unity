@@ -80,6 +80,12 @@ namespace ToolBox.Serialization
 			LoadFile();
 		}
 
+		public static void SaveDataFile()
+		{
+			var bytes = Serialize(_data);
+			File.WriteAllBytes(_savePath, bytes);
+		}
+
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
 		private static void Setup()
 		{
